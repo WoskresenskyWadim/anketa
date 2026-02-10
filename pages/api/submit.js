@@ -1,13 +1,13 @@
 // pages/api/submit.js
-
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Метод не разрешён' });
   }
 
   try {
+    // ИСПОЛЬЗУЕМ TABLE ID ВМЕСТО НАЗВАНИЯ
     const response = await fetch(
-      `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/Анкета`,
+      `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/tblb0Tgh3KVgh3lWJ`,
       {
         method: 'POST',
         headers: {
@@ -24,7 +24,7 @@ export default async function handler(req, res) {
       res.status(200).json({ success: true });
     } else {
       const errorText = await response.text();
-      console.error('Airtable API error:', errorText);
+      console.error('Airtable error:', errorText);
       res.status(500).json({ success: false, error: errorText });
     }
   } catch (error) {

@@ -4,7 +4,6 @@ import { useState } from 'react';
 export default function Анкета() {
   const [formData, setFormData] = useState({
     'Идентификационный №': '',
-    'ФИО': '',
     'Дата рождения': '',
     'Воинское звание': '',
     'Личный номер': '',
